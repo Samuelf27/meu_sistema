@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterar Senha</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Alterar Senha</h1>
+
+        {% if mensagem %}
+            <p class="mensagem">{{ mensagem }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <input type="password" name="senha_atual" placeholder="Senha atual" required>
+            <input type="password" name="nova_senha" placeholder="Nova senha" required>
+            <button type="submit">Alterar</button>
+        </form>
+
+        <p><a href="{{ url_for('dashboard') }}">Voltar</a></p>
+    </div>
+</body>
+</html>

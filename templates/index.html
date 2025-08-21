@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Início</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema Flask</h1>
+
+        {% if mensagem %}
+            <p class="mensagem">{{ mensagem }}</p>
+        {% endif %}
+
+        {% if session.user %}
+            <p>Bem-vindo, {{ session.user }}!</p>
+            <a href="{{ url_for('dashboard') }}">Ir para Dashboard</a> |
+            <a href="{{ url_for('logout') }}">Sair</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a> |
+            <a href="{{ url_for('cadastro') }}">Cadastrar</a>
+        {% endif %}
+    </div>
+</body>
+</html>
